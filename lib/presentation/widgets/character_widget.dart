@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
-class CharacterCard extends StatelessWidget {
+class CharacterCard extends StatefulWidget {
   const CharacterCard({super.key});
 
+  @override
+  State<CharacterCard> createState() => _CharacterCardState();
+}
+
+class _CharacterCardState extends State<CharacterCard> {
   @override
   Widget build(BuildContext context) {
     return Material(
       elevation: 4,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black87,
           borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: Colors.red, width: 2),
+          color: Colors.black,
+          border: Border.all(
+            color: Colors.red,
+            width: 2,
+          ),
         ),
         margin: const EdgeInsets.all(4),
         height: 150,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/screens/details_screen.dart';
-import 'package:flutter_application/screens/home_screen.dart';
-import 'package:flutter_application/screens/weapons_screen.dart';
+import 'package:flutter_application/presentation/screens/details_screen.dart';
+import 'package:flutter_application/presentation/screens/home_screen.dart';
+import 'package:flutter_application/presentation/screens/weapons_screen.dart';
 
 void main() {
   runApp(const MyApp());
