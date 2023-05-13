@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/presentation/screens/details_screen.dart';
-import 'package:flutter_application/presentation/screens/home_screen.dart';
+import 'package:flutter_application/presentation/screens/home/home_screen.dart';
 import 'package:flutter_application/presentation/screens/weapons_screen.dart';
 
 void main() {

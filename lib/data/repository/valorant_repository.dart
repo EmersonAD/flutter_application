@@ -6,13 +6,13 @@ abstract class AgentsRepository {
 }
 
 class AgentsRepositoryImpl implements AgentsRepository {
-  final ValorantService service;
+  final ValorantService _service;
 
-  AgentsRepositoryImpl(this.service);
+  AgentsRepositoryImpl(this._service);
 
   @override
   Future<AgentsResponseEntity> getAgents() async {
-    AgentsResponseEntity response = await service.getAgents();
+    AgentsResponseEntity response = await _service.getAgents();
     if (response.data.isEmpty) {
       throw Exception('No agents found');
     }

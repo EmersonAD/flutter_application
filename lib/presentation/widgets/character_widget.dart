@@ -1,69 +1,59 @@
 import 'package:flutter/material.dart';
 
-class CharacterCard extends StatefulWidget {
-  const CharacterCard({super.key});
+class CharacterCard extends StatelessWidget {
+  final String name;
+  final String background;
+  final String characterImage;
 
-  @override
-  State<CharacterCard> createState() => _CharacterCardState();
-}
+  const CharacterCard({
+    super.key,
+    required this.name,
+    required this.background,
+    required this.characterImage,
+  });
 
-class _CharacterCardState extends State<CharacterCard> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 4,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
-          color: Colors.black,
-          border: Border.all(
-            color: Colors.red,
-            width: 2,
+    return Container(
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.black87,
+        borderRadius: BorderRadius.circular(4),
+        image: const DecorationImage(
+          image: NetworkImage(
+            "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt084d55ffe1da593b/5fac3843c1502b76a169ba09/Valorant_Dev_Diary_24_Banner.jpg?auto=webp&disable=upscale&height=549",
           ),
+          fit: BoxFit.fill,
         ),
-        margin: const EdgeInsets.all(4),
-        height: 150,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(
-              width: 100,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Image.network(
-                    'https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltceaa6cf20d328bd5/5eb7cdc1b1f2e27c950d2aaa/V_AGENTS_587x900_Jett.png',
-                  )
-                ],
+      ),
+      margin: const EdgeInsets.all(4),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: 350,
+            height: 150,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              border: Border.all(
+                color: Colors.red,
               ),
             ),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Jett',
-                  style: TextStyle(
+            child: Center(
+              child: Text(
+                name,
+                style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'Duelista',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+                    fontSize: 60,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-            Image.network(
-              'https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt213441880cf2cdf5/5eaa06851b51e36d7c1b61d4/Duelist.png',
-              width: 80,
-              height: 80,
-            )
-          ],
-        ),
+          ),
+          Image.network(
+            characterImage,
+            fit: BoxFit.scaleDown,
+          )
+        ],
       ),
     );
   }
