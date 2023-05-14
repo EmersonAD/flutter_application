@@ -1,4 +1,5 @@
 import 'package:flutter_application/data/repository/valorant_repository.dart';
+import 'package:flutter_application/presentation/widgets/ability_widget.dart';
 import 'package:flutter_application/presentation/widgets/character_widget.dart';
 
 import '../../data/model/agents_response_entity.dart';
@@ -23,13 +24,30 @@ class AgentsUseCaseImpl implements AgentsUseCase {
         playableAgents.add(
           CharacterCard(
             name: agent.displayName.toUpperCase(),
+            role: agent.role.displayName.toUpperCase(),
             background: agent.background,
             characterImage: agent.fullPortrait,
+            roleDescription: agent.role.description,
+            roleImage: agent.role.displayIcon,
+            abilities: getAbilities(agent),
           ),
         );
       }
     }
 
     return playableAgents;
+  }
+
+  List<AbilityWidget> getAbilities(AgentsResponseData agent) {
+    List<AbilityWidget> abilities = [];
+    for (var ability in agent.abilities) {
+      abilities.add(
+        AbilityWidget(
+          ability: ability.displayName,
+          abilityImage: ability.displayIcon,
+        ),
+      );
+    }
+    return abilities;
   }
 }
