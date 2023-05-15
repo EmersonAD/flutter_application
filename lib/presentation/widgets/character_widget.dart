@@ -25,7 +25,13 @@ class CharacterCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showBottomSheetAgents(context, role, name, abilities, roleDescription);
+        showBottomSheetAgents(
+          context: context,
+          name: name,
+          role: role,
+          roleDescription: roleDescription,
+          abilities: abilities,
+        );
       },
       child: Container(
         height: 200,
@@ -39,7 +45,7 @@ class CharacterCard extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-        margin: const EdgeInsets.all(4),
+        margin: const EdgeInsets.all(2),
         child: Stack(
           alignment: Alignment.center,
           children: [

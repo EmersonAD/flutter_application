@@ -45,6 +45,7 @@ class AgentsUseCaseImpl implements AgentsUseCase {
         AbilityWidget(
           ability: ability.displayName,
           abilityImage: ability.displayIcon,
+          abilityDescription: ability.description,
         ),
       );
     }

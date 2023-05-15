@@ -12,7 +12,7 @@ class ValorantServiceImpl implements ValorantService {
   final http.Client client;
 
   static const String baseUrl = "https://valorant-api.com/v1/";
-  static String agentsEndPoint = "agents";
+  static String agentsEndPoint = "agents?language=pt-BR";
   String getUrl() => baseUrl + agentsEndPoint;
 
   ValorantServiceImpl(this.client);
